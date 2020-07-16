@@ -246,4 +246,5 @@ public abstract class BaseService<T> {
     public ApplicationContext getApplicationContext() {
         return SpringContextUtils.getApplicationContext();
     }
+
 }

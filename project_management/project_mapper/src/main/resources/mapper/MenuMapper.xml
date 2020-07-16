@@ -17,4 +17,18 @@
     <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
     <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
   </resultMap>
+    <select id="getMenuByUserId" resultType="com.aaa.model.Menu">
+      select m.MENU_ID menuId, m.MENU_NAME menuName, PATH from t_menu m
+      join t_role_menu rm on rm.MENU_ID = m.MENU_ID
+      join (select r.ROLE_ID roleId from t_role r
+          JOIN t_user_role ur on r.ROLE_ID = ur.ROLE_ID
+          join t_user u on ur.USER_ID = u.id where u.id = 1) res
+      on res.roleId = rm.ROLE_ID where m.PARENT_ID = 0
+    </select>
+    <select id="getMenuByParentId" resultType="com.aaa.model.Menu" parameterType="java.lang.Long">
+      select a.MENU_ID menuId, a.MENU_NAME menuName, a.PATH from t_menu a
+      left join (select MENU_ID from t_menu where PARENT_ID = 0) b
+          on a.PARENT_ID = b.MENU_ID where a.PARENT_ID = #{parentId}
+    </select>
+
 </mapper>
