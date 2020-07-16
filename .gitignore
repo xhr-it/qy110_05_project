@@ -1,0 +1,59 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+.idea
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.idea/vcs.xml
+project_common/src/main/resources/
+project_common/src/test/
+project_common/target/generated-sources/
+project_config/src/test/
+project_config/target/generated-sources/
+project_consumer_management/project_consumer_backup/src/main/resources/
+project_consumer_management/project_consumer_backup/src/test/
+project_consumer_management/project_consumer_backup/target/generated-sources/
+project_consumer_management/target/
+project_eureka_management/project_eureka_6081/src/main/java/com/aaa/controller/
+project_eureka_management/project_eureka_6081/src/test/
+project_eureka_management/project_eureka_6081/target/classes/config/
+project_eureka_management/project_eureka_6081/target/generated-sources/
+project_management/project_api/src/main/resources/
+project_management/project_api/src/test/
+project_management/project_api/target/generated-sources/
+project_management/project_mapper/src/test/
+project_management/project_mapper/target/classes/com/aaa/mapper/MenuMapper.class
+project_management/project_mapper/target/classes/mapper/MenuMapper.xml
+project_management/project_mapper/target/generated-sources/
+project_management/project_model/src/main/resources/
+project_management/project_model/src/test/
+project_management/project_model/target/generated-sources/
+project_management/project_service/src/main/resources/
+project_management/project_service/src/test/
+project_management/project_service/target/generated-sources/
+project_management/target/
+project_provider_management/project_provider_backup/src/test/
+project_provider_management/project_provider_backup/target/generated-sources/
+project_zuul/src/
+project_zuul/target/

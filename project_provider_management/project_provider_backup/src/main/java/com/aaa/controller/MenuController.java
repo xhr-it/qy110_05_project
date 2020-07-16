@@ -29,9 +29,9 @@ public class MenuController extends CommonController {
     public ResultData getMenuList(){
         List<Menu> menuList = menuService.selectList(null);
         if (menuList != null && menuList.size() > 0) {
-            return operationSuccess();
+            return getSuccess(menuList);
         }else {
-            return operationFailed();
+            return getFalse();
         }
     }
 }
