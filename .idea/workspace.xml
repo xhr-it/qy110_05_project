@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="007eace3-c421-45ff-80bd-7240891fd95f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_provider_management/project_provider_backup/target/classes/com/aaa/controller/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/project_provider_management/project_provider_backup/target/classes/com/aaa/controller/MenuController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,7 +45,20 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,8 +141,8 @@
         <option value="$PROJECT_DIR$/project_common/src/main/java/com/aaa/status/LoginStatus.java" />
         <option value="$PROJECT_DIR$/project_common/src/main/java/com/aaa/status/CrudStatus.java" />
         <option value="$PROJECT_DIR$/project_common/src/main/java/com/aaa/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java" />
       </list>
     </option>
   </component>
@@ -173,6 +184,83 @@
               <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="aaa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="aaa" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qy110_05_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qy110_05_project" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_management" type="462c0819:PsiDirectoryNode" />
+              <item name="project_provider_backup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -185,7 +273,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1594870150495" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1594870870379" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -285,12 +373,27 @@
       <workItem from="1594819514621" duration="4437000" />
       <workItem from="1594859890191" duration="3875000" />
       <workItem from="1594864064937" duration="605000" />
-      <workItem from="1594864730087" duration="5306000" />
+      <workItem from="1594864730087" duration="5564000" />
     </task>
+    <task id="LOCAL-00001" summary="忽略了idea文件（不再上传idea文件）">
+      <created>1594870686249</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594870686249</updated>
+    </task>
+    <task id="LOCAL-00002" summary="忽略了idea文件（不再上传idea文件）">
+      <created>1594870797267</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594870797267</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74999000" />
+    <option name="totallyTimeSpent" value="75257000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -303,6 +406,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -314,13 +418,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14447592" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.14447592" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
@@ -343,6 +447,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="忽略了idea文件（不再上传idea文件）" />
+    <option name="LAST_COMMIT_MESSAGE" value="忽略了idea文件（不再上传idea文件）" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project_management/pom.xml">
@@ -728,18 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -747,6 +843,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project_provider_management/project_provider_backup/src/main/java/com/aaa/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
