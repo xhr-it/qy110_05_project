@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="project_api" />
+        <module name="project_common" />
+        <module name="project_config" />
+        <module name="project_consumer_backup" />
+        <module name="project_eureka_6081" />
+        <module name="project_mapper" />
+        <module name="project_model" />
+        <module name="project_provider_backup" />
+        <module name="project_service" />
+        <module name="project_zuul" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
