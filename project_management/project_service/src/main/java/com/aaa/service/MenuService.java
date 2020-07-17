@@ -69,5 +69,4 @@ public class MenuService extends BaseService<Menu> {
         }
         return null;
     }
-
 }

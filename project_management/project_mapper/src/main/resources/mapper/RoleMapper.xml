@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.mapper.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.aaa.model.Role" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ROLE_ID" property="roleId" jdbcType="BIGINT" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <select id="getMenuByRoleId" resultType="com.aaa.model.Menu">
+      select m.MENU_ID menuId, m.PARENT_ID parentId, m.MENU_NAME menuName from t_menu m
+      join t_role_menu rm on m.MENU_ID = rm.MENU_ID
+      join t_role r on rm.ROLE_ID = r.ROLE_ID where m.TYPE=0 and r.ROLE_ID=#{roleId}
+    </select>
+  <delete id="deleteMenuByRoleId">
+    delete from t_role_menu where ROLE_ID = #{roleId}
+  </delete>
+</mapper>

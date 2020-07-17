@@ -35,7 +35,7 @@ public class MenuController extends CommonController {
      * 根据当前登录人的id查询可以操作的菜单（一级菜单）
      */
     @GetMapping("/getMenuByUserId")
-    public ResultData getMenuByUserId(Long userId){
+    public ResultData getMenuByUserId(@RequestParam("userId") Long userId){
         List<Menu> menuByUserId = menuService.getMenuByUserId(userId);
         if (menuByUserId != null && menuByUserId.size() > 0) {
             return getSuccess(menuByUserId);
@@ -51,7 +51,7 @@ public class MenuController extends CommonController {
      * 根据父菜单id查询子菜单
      */
     @GetMapping("/getMenuByParentId")
-    public ResultData getMenuByParentId(Long parentId){
+    public ResultData getMenuByParentId(@RequestParam("parentId") Long parentId){
         List<Menu> menuByParentId = menuService.getMenuByParentId(parentId);
         if (menuByParentId != null && menuByParentId.size() > 0) {
             return getSuccess(menuByParentId);
@@ -114,7 +114,7 @@ public class MenuController extends CommonController {
      * 根据id查询菜单
      */
     @GetMapping("/selectMenuById")
-    public ResultData selectMenuById(Long menuId){
+    public ResultData selectMenuById(@RequestParam("menuId") Long menuId){
         Menu menu = menuService.selectMenuById(menuId);
         if (menu != null) {
             return getSuccess(menu);
@@ -138,4 +138,5 @@ public class MenuController extends CommonController {
             return updateFalse();
         }
     }
+
 }

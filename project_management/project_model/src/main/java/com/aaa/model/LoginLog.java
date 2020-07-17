@@ -7,13 +7,14 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Table(name = "t_login_log")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class LoginLog {
+public class LoginLog implements Serializable {
     /**
      * 用户名
      */
