@@ -2,7 +2,6 @@ package com.aaa.service;
 
 import com.aaa.base.BaseService;
 import com.aaa.mapper.RoleMapper;
-import com.aaa.mapper.RoleMenuMapper;
 import com.aaa.model.Menu;
 import com.aaa.model.Role;
 import com.aaa.model.RoleMenu;

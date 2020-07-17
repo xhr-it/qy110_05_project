@@ -16,6 +16,7 @@ import java.util.Map;
 /**
  * @author xhr
  * @date 2020/7/16
+ * 角色管理
  **/
 @RestController
 public class RoleController extends CommonController<Role> {

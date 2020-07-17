@@ -16,6 +16,7 @@ import java.util.Map;
 /**
  * @author xhr
  * @date 2020/7/16
+ * 菜单管理
  **/
 @RestController
 public class MenuController extends CommonController {
