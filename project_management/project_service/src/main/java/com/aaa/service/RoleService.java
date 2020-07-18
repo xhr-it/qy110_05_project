@@ -27,6 +27,42 @@ public class RoleService extends BaseService<Role> {
     @Autowired
     private RoleMenuService roleMenuService;
 
+    public Boolean insertRole(Map map){
+        Integer insert = 0;
+        Role role = new Role();
+        if (null != map){
+            //取出map中role实体的属性并赋值给role
+            role.setRoleName(map.get("roleName").toString()).setRemark(map.get("remark").toString());
+            role.setCreateTime(new Date());
+            //新增角色并获取主键
+            insert = roleMapper.insertRoleReturnKey(role);
+        }
+
+        if (insert > 0 ){
+            //获得新增的主键
+            Long roleId = role.getRoleId();
+            //获取传入的menuId字符串（"1-2-3-）
+            Integer integer = 0;
+            String menuIdStr = map.get("menuIdStr").toString();
+            //将字符串转为数组
+            String[] menuIdArr = menuIdStr.substring(0, menuIdStr.length() - 1).split("-");
+            //遍历取出menuId
+            for (int i = 0; i < menuIdArr.length; i++) {
+                Long menuId = Long.valueOf(menuIdArr[i]);
+
+                //操作角色权限中间表
+                RoleMenu roleMenu = new RoleMenu();
+                roleMenu.setRoleId(roleId).setMenuId(menuId);
+                integer = roleMenuService.insertRoleMenu(roleMenu);
+            }
+
+            if (integer > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * @param [menuIds]
      * @return java.lang.Integer

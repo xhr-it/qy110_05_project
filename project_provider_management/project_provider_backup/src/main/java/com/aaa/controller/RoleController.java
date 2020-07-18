@@ -49,14 +49,16 @@ public class RoleController extends CommonController<Role> {
      * @param [role]
      * @return com.aaa.base.ResultData
      * @date 2020/7/16 20:49
-     * 新增角色
+     * 新增角色-同时分配（新增）权限
      */
     @PostMapping("/insertRole")
-    public ResultData insertRole(@RequestBody Role role){
-        if (role != null) {
-            role.setCreateTime(new Date());
+    public ResultData insertRole(@RequestBody Map map){
+        Boolean aBoolean = roleService.insertRole(map);
+        if (aBoolean){
+            return addSuccess();
+        }else {
+            return addFalse();
         }
-        return roleService.insertData(role);
     }
 
     /**

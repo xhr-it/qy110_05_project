@@ -23,4 +23,12 @@ public interface RoleMapper extends Mapper<Role> {
      * 根据角色id删除对应的权限
      */
     Integer deleteMenuByRoleId(Long roleId);
+
+    /**
+     * @param [role]
+     * @return java.lang.Integer
+     * @date 2020/7/17 22:22
+     * 新增同时返回自增主键
+     */
+    Integer insertRoleReturnKey(Role role);
 }

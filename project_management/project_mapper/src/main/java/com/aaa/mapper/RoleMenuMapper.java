@@ -1,5 +1,6 @@
 package com.aaa.mapper;
 
+import com.aaa.model.Role;
 import com.aaa.model.RoleMenu;
 import tk.mybatis.mapper.common.Mapper;
 

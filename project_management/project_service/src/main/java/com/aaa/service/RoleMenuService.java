@@ -2,6 +2,7 @@ package com.aaa.service;
 
 import com.aaa.base.BaseService;
 import com.aaa.mapper.RoleMenuMapper;
+import com.aaa.model.Role;
 import com.aaa.model.RoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,4 +29,5 @@ public class RoleMenuService extends BaseService<RoleMenu> {
         }
         return null;
     }
+
 }
