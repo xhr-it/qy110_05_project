@@ -4,8 +4,7 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * @author xhr

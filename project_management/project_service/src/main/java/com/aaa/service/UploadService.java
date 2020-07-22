@@ -5,6 +5,7 @@ import com.aaa.utils.FileNameUtils;
 import com.aaa.utils.FtpUtils;
 import org.apache.commons.httpclient.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ import static com.aaa.staticproperties.TimeFormatProperties.DATE_FORMAT;
  * @date 2020/7/10
  * UploadService
 **/
+@Service
 public class UploadService {
 
     @Autowired
@@ -42,7 +44,7 @@ public class UploadService {
         // 5.调用文件上传工具类
         try {
             return FtpUtils.upload(ftpProperties.getHost(), ftpProperties.getPort(), ftpProperties.getUsername(),
-                    ftpProperties.getPassword(), ftpProperties.getBasePath(), filePath, newFileName, file.getInputStream());
+                    ftpProperties.getPassword(), ftpProperties.getBasePath(),filePath, newFileName, file.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }

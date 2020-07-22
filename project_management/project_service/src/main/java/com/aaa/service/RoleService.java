@@ -7,6 +7,7 @@ import com.aaa.model.Role;
 import com.aaa.model.RoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.Sqls;
 
@@ -106,6 +107,7 @@ public class RoleService extends BaseService<Role> {
      * @date 2020/7/17 10:29
      * 修改角色
      */
+    @Transactional(rollbackFor = Exception.class) //添加事务管理
     public Boolean updateRoleAndMenu(Map map){
         Role role = new Role();
         role.setCreateTime(new Date());
