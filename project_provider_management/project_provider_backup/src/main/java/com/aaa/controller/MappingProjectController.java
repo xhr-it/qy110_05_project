@@ -96,7 +96,7 @@ public class MappingProjectController extends CommonController {
      * @param [id]
      * @return com.aaa.base.ResultData
      * @date 2020/7/18 17:23
-     * 项目管理
+     * 项目管理（这部分有争议，项目管理中应该不需要修改项目状态）
      * 完成项目-修改项目状态为已完成 status=3
      */
     @GetMapping("/updateProjectStatus")
@@ -168,7 +168,7 @@ public class MappingProjectController extends CommonController {
      * @return com.aaa.base.ResultData
      * @date 2020/7/18 9:46
      * 项目审核-项目信息
-     * 查询项目成果汇交通过的项目信息 results_status = 0
+     * 查询项目审核通过的项目信息 audit_status = 0
      * 并可以根据项目名称模糊查询
      */
     @GetMapping("/getProjectByResultsStatus")
@@ -186,7 +186,7 @@ public class MappingProjectController extends CommonController {
      * @return com.aaa.base.ResultData
      * @date 2020/7/18 16:20
      * 项目审核-项目信息
-     * 根据id查询项目成果汇交通过的项目
+     * 根据id查询项目审核通过的项目
      */
     @GetMapping("/getProjectByIdWithResults")
     ResultData getProjectByIdWithResults(@RequestParam("id") Long id){
@@ -274,6 +274,57 @@ public class MappingProjectController extends CommonController {
                                         @RequestParam("auditStatus") Integer auditStatus,
                                         Audit audit){
         Boolean aBoolean = mappingProjectService.updateProjectAuditStatus(id, auditStatus, audit);
+        if (aBoolean){
+            return updateSuccess();
+        }else {
+            return updateFalse();
+        }
+    }
+
+    /**
+     * @param [projectName, pageNo, pageSize]
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/22 21:40
+     * 项目审核-汇交成果信息
+     * 查询所有已审核的项目成果 results_status = 0
+     */
+    ResultData getProjectResultsWithAudit(@RequestParam("projectName") String projectName, @RequestParam("pageNo") Integer pageNo,@RequestParam("pageSize") Integer pageSize){
+        PageInfo<MappingProject> projectByAuditStatus = mappingProjectService.getProjectResultsWithAudit(projectName,pageNo, pageSize);
+        if (null != projectByAuditStatus){
+            return getSuccess(projectByAuditStatus);
+        }else {
+            return getFalse();
+        }
+    }
+
+    /**
+     * @param [projectName, pageNo, pageSize]
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/23 19:17
+     * 项目审核-成果汇交审核
+     * 查询所有已提交但未审核的项目成果 results_status = 2
+     */
+    ResultData getProjectResultsWithOutAudit(@RequestParam("projectName") String projectName, @RequestParam("pageNo") Integer pageNo,@RequestParam("pageSize") Integer pageSize){
+        PageInfo<MappingProject> projectByAuditStatus = mappingProjectService.getProjectResultsWithOutAudit(projectName,pageNo, pageSize);
+        if (null != projectByAuditStatus){
+            return getSuccess(projectByAuditStatus);
+        }else {
+            return getFalse();
+        }
+    }
+
+    /**
+     * @param [id, auditStatus, audit]
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/23 19:20
+     * 项目审核-成果汇交审核
+     * 修改项目成果汇交审核结果 results_status通过：0 不通过：1
+     * 同时添加审核日志 审核意见memo 审核状态status==results_status
+     */
+    ResultData updateProjectResultsStatus(@RequestParam("id") Long id,
+                                    @RequestParam("resultsStatus") Integer resultsStatus,
+                                    Audit audit){
+        Boolean aBoolean = mappingProjectService.updateProjectResultsStatus(id, resultsStatus, audit);
         if (aBoolean){
             return updateSuccess();
         }else {

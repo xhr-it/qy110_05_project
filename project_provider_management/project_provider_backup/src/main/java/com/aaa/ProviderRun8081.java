@@ -1,5 +1,6 @@
 package com.aaa;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,8 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.aaa.mapper")
 @EnableTransactionManagement //开启事务
-public class ApplicationRun {
+@EnableDiscoveryClient
+public class ProviderRun8081 {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationRun.class,args);
+        SpringApplication.run(ProviderRun8081.class,args);
     }
 }

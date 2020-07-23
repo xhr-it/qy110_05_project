@@ -60,4 +60,19 @@ public interface MappingProjectMapper extends Mapper<MappingProject> {
      */
     List<MappingProject> getProjectWithOutAudit(String projectName);
 
+    /**
+     * @param [projectName]
+     * @return java.util.List<com.aaa.model.MappingProject>
+     * @date 2020/7/23 19:05
+     * 查询所有已审核的项目成果 results_status = 0
+     */
+    List<MappingProject> getProjectResultsWithAudit(String projectName);
+
+    /**
+     * @param [projectName]
+     * @return java.util.List<com.aaa.model.MappingProject>
+     * @date 2020/7/23 19:19
+     * 查询所有已提交但未审核的项目成果 results_status = 2
+     */
+    List<MappingProject> getProjectResultsWithOutAudit(String projectName);
 }

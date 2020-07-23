@@ -229,4 +229,93 @@ public class MappingProjectService extends BaseService<MappingProject> {
         return false;
     }
 
+    /**
+     * @param [projectName, pageNo, pageSize]
+     * @return com.github.pagehelper.PageInfo<com.aaa.model.MappingProject>
+     * @date 2020/7/23 19:05
+     * 查询所有已审核的项目成果 results_status = 0
+     */
+    public PageInfo<MappingProject> getProjectResultsWithAudit(String projectName, Integer pageNo, Integer pageSize) {
+        PageInfo<MappingProject> projectPageInfo = null;
+
+        try {
+            PageHelper.startPage(pageNo,pageSize);
+
+            List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectResultsWithAudit(projectName);
+            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (null != projectPageInfo) {
+            return projectPageInfo;
+        }
+        return null;
+    }
+
+    /**
+     * @param [projectName, pageNo, pageSize]
+     * @return com.github.pagehelper.PageInfo<com.aaa.model.MappingProject>
+     * @date 2020/7/23 19:19
+     * 查询所有已提交但未审核的项目成果 results_status = 2
+     */
+    public PageInfo<MappingProject> getProjectResultsWithOutAudit(String projectName, Integer pageNo, Integer pageSize) {
+        PageInfo<MappingProject> projectPageInfo = null;
+
+        try {
+            PageHelper.startPage(pageNo,pageSize);
+
+            List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectResultsWithOutAudit(projectName);
+            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (null != projectPageInfo) {
+            return projectPageInfo;
+        }
+        return null;
+    }
+
+    /**
+     * @param [id, auditStatus, audit]
+     * @return java.lang.Boolean
+     * @date 2020/7/23 19:23
+     * 修改项目成果汇交审核结果 results_status通过：0 不通过：1
+     * 同时添加审核日志 审核意见memo 审核状态status==results_status
+     */
+    public Boolean updateProjectResultsStatus(Long id, Integer resultsStatus, Audit audit) {
+        MappingProject mappingProject = new MappingProject();
+        Integer update = 0;
+        if (null != id){
+            mappingProject.setId(id);
+            mappingProject.setResultsStatus(resultsStatus);
+            update = mappingProjectMapper.updateByPrimaryKeySelective(mappingProject);
+            if (update > 0 ){
+                //修改项目审核结果成功
+                //随机生成id
+                long currentTimeMillis = System.currentTimeMillis();
+                Random random = new Random();
+                int randomNum = random.nextInt(9999);
+                Long myId = currentTimeMillis+randomNum;
+                //设置审核编号
+                audit.setId(myId);
+                //设置审核项
+                String name = "项目登记审核";
+                audit.setName(name);
+                //设置审核表中其他字段
+                audit.setStatus(resultsStatus)
+                        .setRefId(id)
+                        .setType(2)
+                        .setAuditTime(new Date())
+                        .setCreateTime(new Date());
+                Integer update1 = auditMapper.insert(audit);
+                update += update1;
+                if (update > 1){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

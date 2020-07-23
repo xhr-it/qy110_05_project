@@ -71,7 +71,7 @@
     <select id="getProjectByResultsStatus" resultType="com.aaa.model.MappingProject">
       select * from t_mapping_project
       <where>
-        results_status = 0
+        audit_status = 0
         <if test="projectName != null and projectName != ''">
           and project_name like concat('%',#{projectName},'%')
       </if>
@@ -82,6 +82,26 @@
       select * from t_mapping_project
       <where>
         audit_status = 2
+        <if test="projectName != null and projectName != ''">
+          and project_name like concat('%',#{projectName},'%')
+        </if>
+      </where>
+    </select>
+
+    <select id="getProjectResultsWithAudit" resultType="com.aaa.model.MappingProject">
+      select * from t_mapping_project
+      <where>
+        results_status = 0
+        <if test="projectName != null and projectName != ''">
+          and project_name like concat('%',#{projectName},'%')
+        </if>
+      </where>
+    </select>
+
+    <select id="getProjectResultsWithOutAudit" resultType="com.aaa.model.MappingProject">
+      select * from t_mapping_project
+      <where>
+        results_status = 2
         <if test="projectName != null and projectName != ''">
           and project_name like concat('%',#{projectName},'%')
         </if>
