@@ -101,6 +101,19 @@ public class BaseController {
     }
 
     /**
+     * 操作成功(重载)
+     *  返回系统消息
+     * @return
+     */
+    protected ResultData operationSuccess(Object data){
+        ResultData resultData = new ResultData();
+        resultData.setCode(SUCCESS.getCode());
+        resultData.setMsg(SUCCESS.getMsg());
+        resultData.setData(data);
+        return resultData;
+    }
+
+    /**
      * @param []
      * @return com.aaa.base.ResultData
      * @date 2020/7/9 20:39
@@ -110,6 +123,18 @@ public class BaseController {
         ResultData resultData = new ResultData();
         resultData.setCode(FAILED.getCode());
         resultData.setMsg(FAILED.getMsg());
+        return resultData;
+    }
+
+    /**
+     * 操作失败(重载)
+     *  返回自定义消息
+     * @return
+     */
+    protected ResultData operationFailed(String msg){
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(msg);
         return resultData;
     }
 

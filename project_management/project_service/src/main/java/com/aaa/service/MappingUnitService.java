@@ -1,7 +1,7 @@
 package com.aaa.service;
 
 import com.aaa.base.BaseService;
-import com.aaa.mapper.MappingUnitMapper;
+import com.aaa.mapper.MappingUnitAuditMapper;
 import com.aaa.model.MappingUnit;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -18,14 +18,14 @@ import java.util.List;
 @Service
 public class MappingUnitService extends BaseService<MappingUnit> {
     @Autowired
-    private MappingUnitMapper mappingUnitMapper;
+    private MappingUnitAuditMapper mappingUnitMapper;
 
     /**
      * 根据id查询
      * @param id
      * @return
      */
-    public List<MappingUnit> selectOneMappingUnit(Long id){
+    public MappingUnit selectOneMappingUnit(Long id){
         if (!"".equals(id)) {
             return mappingUnitMapper.selectOneMappingUnit(id);
         }

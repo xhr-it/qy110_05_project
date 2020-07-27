@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.mapper.RandomCheckMapper">
+    <select id="selectRandomMappingUnit" resultType="com.aaa.model.MappingUnit">
+        select *
+        from t_mapping_unit
+        <if test="randomNum != null">
+            order by rand() LIMIT  #{randomNum}
+        </if>
+    </select>
+    <select id="selectRandomCheckPerson" resultType="com.aaa.model.CheckPerson">
+        select *
+        from t_check_person
+        <if test="randomNum != null">
+            order by rand() LIMIT  #{randomNum}
+        </if>
+    </select>
+</mapper>

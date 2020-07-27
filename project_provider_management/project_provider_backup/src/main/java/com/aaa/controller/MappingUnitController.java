@@ -36,7 +36,7 @@ public class MappingUnitController extends CommonController<MappingUnit> {
     **/
     @GetMapping("/selectOneMappingUnit")
     public ResultData selectOneMappingUnit(@RequestParam("id") Long id){
-        List<MappingUnit> mappingUnits = mappingUnitService.selectOneMappingUnit(id);
+        MappingUnit mappingUnits = mappingUnitService.selectOneMappingUnit(id);
         if (mappingUnits != null) {
             return getSuccess(mappingUnits);
         }else {

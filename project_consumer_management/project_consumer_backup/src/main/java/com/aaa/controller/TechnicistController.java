@@ -37,10 +37,10 @@ public class TechnicistController extends BaseController {
      * @return com.aaa.base.ResultData
      *****根据id查询单条技术人员信息
      **/
-    @GetMapping("/selectOneTechnicist")
+    /*@GetMapping("/selectOneTechnicist")
     public ResultData selectOneTechnicist(@RequestParam("id") Long id){
         return iProjectService.selectOneTechnicist(id);
-    }
+    }*/
     /***
      * @author CZT
      * @date 2020/7/20
@@ -59,10 +59,10 @@ public class TechnicistController extends BaseController {
      * @return com.aaa.base.ResultData
      *****查询一条技术人员信息
      **/
-    @GetMapping("/selectOneTechnicist")
+    /*@GetMapping("/selectOneTechnicist")
     public ResultData selectOneTechnicist(@RequestBody Technicist technicist){
         return iProjectService.selectOneTechnicist(technicist);
-    }
+    }*/
     /***
      * @author CZT
      * @date 2020/7/20

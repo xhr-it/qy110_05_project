@@ -21,4 +21,54 @@
     <result column="type" property="type" jdbcType="CHAR" />
     <result column="token" property="token" jdbcType="VARCHAR" />
   </resultMap>
+
+  <select id="selectUser" resultMap="BaseResultMap">
+    select u.username,u.ssex,u.email,d.DEPT_NAME ,u.mobile,u.status,u.create_time
+    from t_user u left join t_dept d on u.dept_id = d.dept_id
+    where u. status != 0
+  </select>
+
+  <select id="selectOneUser" resultMap="BaseResultMap">
+    select username,email,mobile,status,create_time,modify_time,last_login_time,ssex,description
+    from t_user
+    where id = #{id}
+  </select>
+
+  <select id="selectDeptName" resultType="String">
+    select d.DEPT_NAME
+    from t_user u
+    left join t_dept d on u.dept_id = d.DEPT_ID
+    where u.id = #{id}
+  </select>
+  <select id="selectRoleName" resultType="String">
+    select r.ROLE_NAME
+    from t_user u
+    left join t_user_role ur on u.id = ur.USER_ID
+    left join t_role r on r.ROLE_ID = ur.ROLE_ID
+    where u.id = #{id}
+  </select>
+  <insert id="addUser" useGeneratedKeys="true"  keyProperty="id">
+    insert into t_user(username,password,dept_id,email,mobile,status,create_time,ssex,description,avatar)
+    values(#{username},#{password},#{deptId},#{email},#{mobile},#{status},now(),#{ssex},#{description},#{avatar})
+  </insert>
+  <insert id="addUserRole">
+    insert into t_user_role(USER_ID,ROLE_ID)
+    values(#{userId},#{roleId})
+  </insert>
+  <update id="updateUser">
+    update t_user
+    set username = #{username},password = #{password},dept_id = #{deptId},
+        email = #{email},mobile = #{mobile},status = #{status},modify_time = now(),
+        ssex = #{ssex},description = #{description},avatar = #{avatar}
+    where id = #{id}
+  </update>
+  <update id="updateUserRole">
+    update t_user_role
+    set ROLE_ID = #{roleId}
+    where USER_ID = #{id}
+  </update>
+  <delete id="deleteUserRole">
+    delete from t_user_role
+    where USER_ID = #{userId}
+  </delete>
 </mapper>

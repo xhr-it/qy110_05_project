@@ -2,6 +2,7 @@ package com.aaa.service;
 
 import com.aaa.base.ResultData;
 import com.aaa.model.*;
+import com.aaa.vo.ScoreVo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author xhr
@@ -425,8 +425,8 @@ public interface IProjectService {
      * @return com.aaa.base.ResultData
      *****查询一条技术人员信息
      **/
-    @GetMapping("/selectOneTechnicist")
-    public ResultData selectOneTechnicist(@RequestBody Technicist technicist);
+    /*@GetMapping("/selectOneTechnicist")
+    public ResultData selectOneTechnicist(@RequestBody Technicist technicist);*/
 
     /***
      * @author CZT
@@ -447,5 +447,187 @@ public interface IProjectService {
      **/
     @PostMapping("/deleteTechnicist")
      ResultData deleteTechnicist(@RequestBody Technicist technicist);
+
+    //李有阳
+    /**
+     * 查询所有测绘单位
+     * @return
+     */
+    @GetMapping("/selectMappingUnit")
+    ResultData selectMappingUnit();
+
+    /**
+     * 新增测绘单位
+     * @return
+     */
+    @PostMapping("/addMappingUnit")
+    ResultData addMappingUnit();
+
+    /**
+     * 更新测绘单位
+     * @return
+     */
+    @PostMapping("/updateMappingUnit")
+    ResultData updateMappingUnit();
+
+    /**
+     * 删除测绘单位
+     * @return
+     */
+    @PostMapping("/deleteMappingUnit")
+    ResultData deleteMappingUnit();
+
+    /**
+     * 分页查询用户
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    @GetMapping("/selectUser")
+    ResultData selectUser(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize);
+
+    /**
+     * 根据主键查询用户详细信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/selectOneUser")
+    ResultData selectOneUser(@RequestParam("id") Integer id);
+
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/addUser")
+    ResultData addUser(@RequestBody User user);
+
+    /**
+     * 更新用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/updateUser")
+    ResultData updateUser(@RequestBody User user);
+
+    /**
+     * 删除用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/deleteUser")
+    ResultData deleteUser(@RequestBody User user);
+
+    /**
+     * 批量删除
+     * @param ids
+     * @return
+     */
+    @PostMapping("/deleteAllUser")
+    ResultData deleteAllUser(@RequestBody List<Integer> ids);
+
+    /**
+     * 查询所有已审核的测绘单位
+     * @return
+     */
+    @GetMapping("/selectAllMappingUnitAudit")
+    ResultData selectAllMappingUnitAudit();
+
+    /**
+     * 查询所有未审核的测绘单位
+     * @return
+     */
+    @GetMapping("/selectUpdateMappingUnitNoAudit")
+    ResultData selectUpdateMappingUnitNoAudit();
+
+    /**
+     * 查询所有未审核的测绘单位
+     * @return
+     */
+    @GetMapping("/selectAddMappingUnitNoAudit")
+    ResultData selectAddMappingUnitNoAudit();
+
+    /**
+     * 审核已提交的测绘单位(通过)
+     * @param mappingUnit
+     * @return
+     */
+    @PostMapping("/updateMappingUnitAudit")
+    ResultData updateMappingUnitAudit(@RequestBody MappingUnit mappingUnit);
+
+    /**
+     * 审核已提交的测绘单位(不通过)
+     * @param mappingUnit
+     * @return
+     */
+    @PostMapping("/updateMappingUnitNoAudit")
+    ResultData updateMappingUnitNoAudit(@RequestBody MappingUnit mappingUnit);
+
+    /**
+     * 根据主键查询测绘单位评分记录
+     * @param id
+     * @return
+     */
+    @GetMapping("/selectScoreRecord")
+    ResultData selectScoreRecord(@RequestParam("id") Long id);
+
+    /**
+     * 修改测绘单位评分
+     * @param scoreVo
+     * @return
+     */
+    @PostMapping("/updateMappingUnitScore")
+    ResultData updateMappingUnitScore(@RequestBody ScoreVo scoreVo);
+
+    @PostMapping("/selectAudit")
+    ResultData selectAudit(@RequestParam("userId") Long userId);
+
+    /**
+     * 根据随机数分页抽查单位
+     * @param proportion
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    @GetMapping("/selectRandomMappingUnit")
+    ResultData selectRandomMappingUnit(@RequestParam("proportion") Double proportion,@RequestParam("pageNo") Integer pageNo,@RequestParam("pageSize") Integer pageSize);
+
+    /**
+     * 根据随机数分页查询人员
+     * @param proportion
+     * @return
+     */
+    @GetMapping("/selectRandomCheckPerson")
+    ResultData selectRandomCheckPerson(@RequestParam("proportion")Double proportion);
+
+    /**
+     * 查询项目测绘
+     * @return
+     */
+    @GetMapping("/selectAllMappingProject")
+    ResultData selectAllMappingProject();
+
+    /**
+     * 查询一个项目测绘
+     * @param mappingProject
+     * @return
+     */
+    @PostMapping("/selectOneMappingProject")
+    ResultData selectOneMappingProject(@RequestBody MappingProject mappingProject);
+
+    /**
+     * 查询测绘结果
+     * @return
+     */
+    @GetMapping("/selectAllResultCommit")
+    ResultData selectAllResultCommit();
+
+    /**
+     * 查询一个项目结果
+     * @param resultCommit
+     * @return
+     */
+    @PostMapping("/selectOneResultCommit")
+    ResultData selectOneResultCommit(@RequestBody ResultCommit resultCommit);
 
 }
