@@ -1,5 +1,6 @@
 package com.aaa.service;
 
+import com.aaa.base.BaseService;
 import com.aaa.properties.FtpProperties;
 import com.aaa.utils.FileNameUtils;
 import com.aaa.utils.FtpUtils;

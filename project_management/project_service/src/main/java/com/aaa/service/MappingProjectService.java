@@ -45,7 +45,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
         try {
             PageHelper.startPage(pageNo,pageSize);
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectProjectWithOutSubmit();
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
         try {
             PageHelper.startPage(pageNo,pageSize);
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectResultsWithOutSubmit();
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,7 +124,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
             PageHelper.startPage(pageNo,pageSize);
 
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectByType(projectType);
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -149,7 +149,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
             PageHelper.startPage(pageNo,pageSize);
 
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectByResultsStatus(projectName);
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -173,7 +173,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
             PageHelper.startPage(pageNo,pageSize);
 
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectWithOutAudit(projectName);
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -242,7 +242,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
             PageHelper.startPage(pageNo,pageSize);
 
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectResultsWithAudit(projectName);
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -266,7 +266,7 @@ public class MappingProjectService extends BaseService<MappingProject> {
             PageHelper.startPage(pageNo,pageSize);
 
             List<MappingProject> projectByResultsStatus = mappingProjectMapper.getProjectResultsWithOutAudit(projectName);
-            projectPageInfo = new PageInfo<>(projectByResultsStatus);
+            projectPageInfo = new PageInfo<MappingProject>(projectByResultsStatus);
         } catch (Exception e) {
             e.printStackTrace();
         }

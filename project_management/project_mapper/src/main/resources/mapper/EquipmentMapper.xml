@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.mapper.EquipmentMapper" >
+  <resultMap id="BaseResultMap" type="com.aaa.model.Equipment" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="production_id" property="productionId" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="check_date" property="checkDate" jdbcType="DATE" />
+    <result column="effective_date" property="effectiveDate" jdbcType="DATE" />
+    <result column="invoice_code" property="invoiceCode" jdbcType="VARCHAR" />
+    <result column="check_department" property="checkDepartment" jdbcType="VARCHAR" />
+    <result column="check_certificate_id" property="checkCertificateId" jdbcType="VARCHAR" />
+    <result column="identified" property="identified" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="modify_time" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <select id="equipmentAlls" resultType="HashMap" parameterType="HashMap">
+    select * from t_equipment
+    <where>
+      1 = 1
+      <if test=" name != null and name != '' ">
+        and name like '%${name}%'
+      </if>
+      <if test=" brand != null and brand != '' ">
+        and brand like '%${brand}%'
+      </if>
+      <if test=" productionId != null and productionId != '' ">
+        and production_id like '%${productionId}%'
+      </if>
+      <if test=" number != null and number != '' ">
+        and 'number' like '%${number}%'
+      </if>
+      <if test=" checkDate != null and checkDate != '' ">
+        and 'check_date' like '%${checkDate}%'
+      </if>
+      <if test=" effectiveDate != null and effectiveDate != '' ">
+        and 'effective_date' like '%${effectiveDate}%'
+      </if>
+      <if test=" invoiceCode != null and invoiceCode != '' ">
+        and 'invoice_code' like '%${invoiceCode}%'
+      </if>
+      <if test=" checkDepartment != null and checkDepartment != '' ">
+        and 'check_department' like '%${checkDepartment}%'
+      </if>
+      <if test=" checkCertificateId != null and checkCertificateId != '' ">
+        and 'check_certificate_id' like '%${checkCertificateId}%'
+      </if>
+      <if test=" identified != null and identified != '' ">
+        and 'identified' like '%${identified}%'
+      </if>
+      <if test=" userId != null and userId != '' ">
+        and 'user_id' like '%${userId}%'
+      </if>
+      <if test=" createTime != null and createTime != '' ">
+        and 'create_time' like '%${createTime}%'
+      </if>
+      <if test=" modifyTime != null and modifyTime != '' ">
+        and 'modify_time' like '%${modifyTime}%'
+      </if>
+    </where>
+  </select>
+  <select id="selectOneEquipment" parameterType="Equipment" resultType="Equipment">
+    select id, name, brand, production_id productionId, number, check_date checkDate, effective_date effectiveDate, invoice_code invoiceCode,
+    check_department checkDepartment, check_certificate_id checkCertificateId, identified
+    from t_equipment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectEquipment" parameterType="Equipment" resultType="Equipment">
+    select id, name, brand, production_id productionId, number, check_date checkDate, effective_date effectiveDate, invoice_code invoiceCode,
+    check_department checkDepartment, check_certificate_id checkCertificateId, identified
+    from t_equipment
+    where user_id =#{user_id,jdbcType=BIGINT}
+  </select>
+</mapper>

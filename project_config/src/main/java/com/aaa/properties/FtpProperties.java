@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "spring.ftp")
 @Data
 public class FtpProperties {
-
     private String host;
     private Integer port;
     private String username;

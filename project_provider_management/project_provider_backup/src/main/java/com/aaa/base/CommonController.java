@@ -56,6 +56,38 @@ public abstract class CommonController<T> extends BaseController {
         return super.operationFailed();
     }
 
+    /***
+     * @author CZT
+     * @date 2020/7/11
+     * @param map
+     * @return com.aaa.base.ResultData
+     *查询一条数据
+     **/
+    public ResultData getOne(@RequestBody Map map) {
+        T t = getBaseService().newInstance(map);
+        t = getBaseService().selectOne(t);
+        if (null != t) {
+            return getSuccess(t);
+        }
+        return getFalse();
+    }
+
+    /***
+     * @author CZT
+     * @date 2020/7/11
+     * @param [map]
+     * @return com.aaa.base.ResultData
+     *更新操作
+     **/
+    public ResultData update(@RequestBody Map map){
+        T t = getBaseService().newInstance(map);
+        int updateResult = getBaseService().update(t);
+        if(updateResult > 0){
+            return  getSuccess(updateResult);
+        }
+        return getFalse();
+    }
+
     /**
      * @param [map]
      * @return com.aaa.base.ResultData

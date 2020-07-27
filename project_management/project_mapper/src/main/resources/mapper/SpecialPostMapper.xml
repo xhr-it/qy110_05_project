@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.mapper.SpecialPostMapper" >
+  <resultMap id="BaseResultMap" type="com.aaa.model.SpecialPost" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="work_year" property="workYear" jdbcType="INTEGER" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="education_background" property="educationBackground" jdbcType="VARCHAR" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="special_post" property="specialPost" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="modify_time" property="modifyTime" jdbcType="DATE" />
+  </resultMap>
+  <select id="selectAllSpecialPost" resultType="HashMap" parameterType="HashMap">
+    select * from t_technicist
+    <where>
+      1 = 1
+      <if test=" name != null and name != '' ">
+        and name like '%${name}%'
+      </if>
+      <if test=" idNumber != null and idNumber != '' ">
+        and id_number like '%${idNumber}%'
+      </if>
+      <if test=" sex != null and sex != '' ">
+        and 'sex' like '%${sex}%'
+      </if>
+      <if test=" age != null and age != '' ">
+        and 'age' like '%${age}%'
+      </if>
+      <if test=" school != null and school != '' ">
+        and 'school' like '%${school}%'
+      </if>
+      <if test=" major != null and major != '' ">
+        and 'major' like '%${major}%'
+      </if>
+      <if test=" special_post != null and special_post != '' ">
+        and 'special_post' like '%${special_post}%'
+      </if>
+    </where>
+  </select>
+</mapper>
