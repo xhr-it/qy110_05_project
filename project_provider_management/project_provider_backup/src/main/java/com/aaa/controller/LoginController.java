@@ -41,7 +41,7 @@ public class LoginController extends CommonController<User> {
     public ResultData doLogin(@RequestBody User user){
         TokenVo tokenVo = loginService.doLogin(user);
         if(tokenVo.getIfSuccess()) {
-            return super.loginSuccess(tokenVo.getToken());
+            return super.loginSuccess(LOGIN_SUCCESS.getMsg(),tokenVo.getToken());
         } else if(tokenVo.getType() == 1) {
             return super.loginFailed(USER_NOT_EXIST.getMsg());
         } else if(tokenVo.getType() == 2) {

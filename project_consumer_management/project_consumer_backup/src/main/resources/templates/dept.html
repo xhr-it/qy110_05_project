@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="/static/css/index.css" />
+		<title>系统管理页面</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<el-breadcrumb separator-class="el-icon-arrow-right" style="margin: 20px 0;">
+				<el-breadcrumb-item :to="{ path: '/' }">系统管理</el-breadcrumb-item>
+				<el-breadcrumb-item>部门管理</el-breadcrumb-item>
+			</el-breadcrumb>
+			<el-main>
+				<el-form :inline="true" class="demo-form-inline">
+					<el-form-item label="名称">
+						<el-input placeholder="请输入部门名称" v-model="deptName" @keyup.enter.native="tableShow(1)"></el-input>
+					</el-form-item>
+					<el-form-item>
+						<el-button type="primary hidden" @click="tableShow(1)">查询</el-button>
+						<el-button type="primary" @click="search">查询</el-button>
+						<el-button type="success" @click="add">新增</el-button>
+					</el-form-item>
+				</el-form>
+				<el-table :data="tableData" stripe style="width: 100%">
+					<el-table-column prop="deptId" label="id" v-model = "deptId" >
+					</el-table-column>
+					<el-table-column prop="deptName" label="名称" >
+					</el-table-column>
+
+					<el-table-column prop="orderNum" label="排序">
+					</el-table-column>
+					<el-table-column prop="createTime" label="创建时间">
+					</el-table-column>
+					<el-table-column prop="modifyTime" label="修改时间">
+					</el-table-column>
+
+
+
+					<el-table-column fixed="right" label="操作" width="200">
+						<template slot-scope="scope">
+							<el-button type="primary" @click="edit(scope.row)">修改</el-button>
+							<el-button type="danger" @click="remove(scope.row)" v-if="scope.row.adminType!=1">删除</el-button>
+						</template>
+					</el-table-column>
+				</el-table>
+				<div class="block">
+					<el-pagination @current-change="tableShow" :current-page="currentPage" :page-size="pagesize" layout="total, prev, pager, next, jumper" :total="total">
+					</el-pagination>
+				</div>
+				<el-dialog title="部门信息" :visible.sync="dialogFormVisible">
+					<el-form :model="form" :rules="rules" ref="form">
+						<input type="hidden" v-model="form.deptId" />
+						<el-form-item label="部门名称" prop="deptName" :label-width="formLabelWidth">
+							<el-input v-model="form.deptName"></el-input>
+						</el-form-item>
+
+						<el-table-column prop="orderNum" label="排序":label-width="formLabelWidth">
+							<el-input v-model="form.orderNum"></el-input>
+						</el-table-column>
+
+
+
+					</el-form>
+
+					<div slot="footer" class="dialog-footer">
+						<el-button @click="cancel">取 消</el-button>
+						<el-button type="primary" @click="save">确 定</el-button>
+					</div>
+				</el-dialog>
+			</el-main>
+		</div>
+
+	</body>
+	<!-- 先引入 Vue -->
+	<script src="/static/js/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="/static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 引入组件库 -->
+	<script src="/static/js/index.js"></script>
+	<script src="/static/js/global.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				formLabelWidth: "120px",
+				dialogFormVisible: false,
+				headerImage:"img/my2.jpg",
+				idcardImage:"img/id1.jpg",
+				deptName:"",
+				tableData: []/*[{
+					id:1,
+					username:"admin",
+					password:"123456",
+					realName:"黄亚祥",
+					phone:"15514507017",
+					idCard:"412702199602128133",
+					creditcard:"6548******8652",
+					bankcard:"8451******8525",
+					companyName:"AAA教育公司",
+					address:"杨金路牛顿国际A座",
+					companyTel:"0371-65154284",
+					emergencyContact:"韩冬",
+					emergencyContactPhone:"15518495687",
+					roleChineseName:"超级管理员",
+					createTime:"2019-09-05"
+				},{
+					id:2,
+					username:"zhangsan",
+					headerImage:"3.jpg",
+					password:"123456",
+					realName:"张三",
+					phone:"15514507017",
+					idCard:"412702199602128133",
+					idcardImage:"4.jpg",
+					creditcard:"6548******8652",
+					bankcard:"8451******8525",
+					companyName:"郑大后勤公司",
+					address:"文化路79号",
+					companyTel:"0371-65154284",
+					emergencyContact:"阿宾",
+					emergencyContactPhone:"15518495687",
+					roleChineseName:"房东",
+					createTime:"2019-09-05"
+				},{
+					id:3,
+					username:"lisi",
+					password:"123456",
+					realName:"李四",
+					phone:"15514507017",
+					idCard:"412702199602128133",
+					creditcard:"6548******8652",
+					bankcard:"8451******8525",
+					companyName:"郑大后勤公司",
+					address:"文化路79号",
+					companyTel:"0371-65154284",
+					emergencyContact:"水水",
+					emergencyContactPhone:"15518495687",
+					roleChineseName:"经纪人",
+					createTime:"2019-09-05"
+				},{
+					id:4,
+					username:"wangwu",
+					password:"123456",
+					realName:"王五",
+					phone:"15514507017",
+					idCard:"412702199602128133",
+					creditcard:"6548******8652",
+					bankcard:"8451******8525",
+					companyName:"郑大后勤公司",
+					address:"文化路79号",
+					companyTel:"0371-65154284",
+					emergencyContact:"花花",
+					emergencyContactPhone:"15518495687",
+					roleChineseName:"租客",
+					createTime:"2019-09-05"
+				}]*/,
+				form: {},
+				currentPage: 1,
+				total: 0,
+				pagesize: 3,
+				query: {},
+				rules: {
+					username: [{
+						required: true,
+						message: '请输入用户名',
+						trigger: 'blur'
+					}],
+					password: [{
+						required: true,
+						message: '请输入密码',
+						trigger: 'blur'
+					}],
+					nickname: [{
+						required: true,
+						message: '请输入昵称',
+						trigger: 'blur'
+					}],
+					phone: [{
+						required: true,
+						message: '请输入手机号',
+						trigger: 'blur'
+					}, {
+						validator: function(rule, value, callback) {
+							if(!value) {
+								return callback(new Error('手机号不能为空'));
+							} else {
+								const reg = /^1[3|4|5|7|8][0-9]\d{8}$/
+								if(reg.test(value)) {
+									callback();
+								} else {
+									return callback(new Error('请输入正确的手机号'));
+								}
+							}
+						},
+						trigger: 'blur'
+					}],
+					idcard: [{
+						required: true,
+						message: '请输入身份证号',
+						trigger: 'blur'
+					}, {
+						validator: function(rule, value, callback) {
+							if(!value) {
+								return callback(new Error('身份证号不能为空'));
+							} else {
+								const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+								if(reg.test(value)) {
+									callback();
+								} else {
+									return callback(new Error('请输入正确的身份证号码'));
+								}
+							}
+						},
+						trigger: 'blur'
+					}],
+					createtime: [{
+						required: true,
+						message: '请输入创建时间',
+						trigger: 'blur'
+					}]
+				}
+			},
+			/**
+			 *
+			 * mounted
+			 * created
+			 * 		1.这两个函数都是来渲染数据的
+			 * 	mounted:
+			 * 		当页面上所有的HTML和js代码全部加载完毕之后，该函数才会被触发
+			 * 	created：
+			 * 		先去触发该函数，然后再去加载页面信息
+			 *
+			 *
+			 **/
+			mounted: function() { //在这里实现onload事件
+				this.tableShow(1);
+				// this:VUE对象
+				var _this = this;
+				$.get("/dept/getAllDepts",function (data) {
+						// 第一步 先把回传的data打印 判断data的数据结构
+						console.log(data.data);
+
+						_this.tableData = data.data;
+
+
+
+
+				})
+
+			},
+			methods: {
+				formatType: function(row, column) {
+					return row.adminType == '1' ? "超级管理员" : "后台管理员";
+				},
+				formatPassword: function(row, column) {
+					return "******";
+				},
+				search: function(){
+					var _this = this;
+					$.get("/dept/selectDeptByDeptName?deptName="+_this.deptName,function (resp) {
+						alert(_this.deptName);
+						console.log(resp)
+							_this.tableData = resp;
+
+
+
+
+					})
+				},
+
+				tableShow: function() {
+					//做异步请求的函数
+					var _this = this;
+
+				},
+				add: function() {
+					this.dialogFormVisible = true;
+					this.form = {};
+				},
+				save: function() {
+					var _this = this;
+
+					this.$refs["form"].validate(function(valid) {
+
+						if(valid) {
+							_this.dialogFormVisible = false;
+							$.post("http://localhost:8083/dept/addDept"
+                              ,_this.form, function(data) {
+								console.log(_this.form)
+								_this.$notify({
+									title: '成功',
+									message: data.message,
+									type: 'success'
+								});
+							})
+							setTimeout(function() {
+								location.reload()
+							}, 1000);
+						} else {
+							console.log('error submit!!');
+							return false;
+						}
+					});
+
+				},
+				cancel: function() {
+					this.dialogFormVisible = false;
+					this.tableShow(1);
+				},
+				edit: function(row) {
+					this.dialogFormVisible = true;
+					this.form = row;
+				},
+				remove: function(row) {
+					var _this = this;
+					this.$confirm('此操作将永久删除该条数据, 是否继续?', '提示', {
+						confirmButtonText: '确定',
+						cancelButtonText: '取消',
+						type: 'warning'
+					}).then(function() {
+						$.post("http://localhost:8083/dept/delDept?deptId=" + row.id, function(data) {
+							_this.$notify({
+								title: '成功',
+								message: data.message,
+								type: 'success'
+							});
+						})
+						setTimeout(function() {
+							location.reload()
+						}, 1000);
+					}).catch(function() {
+						this.$message({
+							type: 'info',
+							message: '已取消删除'
+						});
+					});
+				}
+			}
+		})
+	</script>
+
+</html>

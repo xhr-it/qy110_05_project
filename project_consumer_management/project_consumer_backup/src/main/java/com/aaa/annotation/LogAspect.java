@@ -59,6 +59,10 @@ public class LogAspect {
         HttpServletRequest request = ((ServletRequestAttributes) (RequestContextHolder.getRequestAttributes())).getRequest();
         // 1.获取ip地址(最简单的)
         String ipAddr = IPUtils.getIpAddr(request);// 需要一个HttpServletRequest对象
+        //本地连接
+        if (ipAddr=="127.0.0.1"){
+            ipAddr="1.199.74.167";
+        }
         // 2.获取地理位置(最简单的)
         Map<String, Object> addressMap = AddressUtils.getAddresses(ipAddr, "UTF-8");
 

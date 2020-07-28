@@ -107,4 +107,8 @@
         from t_audit
         where user_id = #{userId}
     </select>
+
+    <select id="getUnitByLevel" resultType="java.util.Map">
+        select count(*),qualification_level from t_mapping_unit GROUP BY qualification_level
+    </select>
 </mapper>

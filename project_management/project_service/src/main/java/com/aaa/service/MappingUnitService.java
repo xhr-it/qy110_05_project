@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author CZT
@@ -58,6 +59,21 @@ public class MappingUnitService extends BaseService<MappingUnit> {
         PageInfo pageInfo = new PageInfo(mappingUnitMapper.selectStatusTwoMappingUnit());
         if (null != pageInfo && !"".equals(pageInfo)){
             return pageInfo;
+        }
+        return null;
+    }
+
+    /**
+     * @param []
+     * @return java.util.List<com.aaa.model.MappingUnit>
+     * @date 2020/7/27 21:45
+     * 根据单位资质等级查询
+     * qualification_level 甲乙丙丁
+     */
+    public List<Map> getUnitByLevel(){
+        List<Map> unitByLevel = mappingUnitMapper.getUnitByLevel();
+        if (null != unitByLevel){
+            return unitByLevel;
         }
         return null;
     }

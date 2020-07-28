@@ -107,4 +107,8 @@
         </if>
       </where>
     </select>
+
+    <select id="getProjectByStatus" resultType="java.util.Map">
+      select count(*),project_type,`status` from t_mapping_project GROUP BY project_type,`status`
+    </select>
 </mapper>

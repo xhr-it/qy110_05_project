@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xhr
@@ -331,4 +332,23 @@ public class MappingProjectController extends CommonController {
             return updateFalse();
         }
     }
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/27 20:46
+     * 数据统计-资质项目汇总统计-项目类型统计
+     * 根据项目完成情况查询项目
+     * status=2未完成 3已完成
+     */
+    @GetMapping("/getProjectByStatus")
+    ResultData getProjectByStatus(){
+        List<Map> projectByStatus = mappingProjectService.getProjectByStatus();
+        if (null != projectByStatus){
+            return getSuccess(projectByStatus);
+        }else {
+            return getFalse();
+        }
+    }
+
 }

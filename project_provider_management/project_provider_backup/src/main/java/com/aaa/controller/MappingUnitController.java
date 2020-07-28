@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author CZT
@@ -88,6 +89,24 @@ public class MappingUnitController extends CommonController<MappingUnit> {
         PageInfo pageInfo = mappingUnitService.selectStatusTwoMappingUnit(hashMap);
         if (pageInfo != null || ("").equals(pageInfo)) {
             return getSuccess(pageInfo);
+        }else {
+            return getFalse();
+        }
+    }
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/27 21:43
+     * 数据统计-资质项目汇总统计-单位资质统计
+     * 根据单位资质等级查询
+     * qualification_level 甲乙丙丁
+     */
+    @GetMapping("/getUnitByLevel")
+    ResultData getUnitByLevel(){
+        List<Map> unitByLevel = mappingUnitService.getUnitByLevel();
+        if (null != unitByLevel){
+            return getSuccess(unitByLevel);
         }else {
             return getFalse();
         }

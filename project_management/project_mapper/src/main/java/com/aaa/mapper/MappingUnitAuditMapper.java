@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -84,4 +85,12 @@ public interface MappingUnitAuditMapper extends Mapper<MappingUnit> {
      */
     List<MappingUnit> selectStatusTwoMappingUnit();
 
+    /**
+     * @param []
+     * @return java.util.List<com.aaa.model.MappingUnit>
+     * @date 2020/7/27 21:46
+     * 根据单位资质等级查询
+     * qualification_level 甲乙丙丁
+     */
+    List<Map> getUnitByLevel();
 }

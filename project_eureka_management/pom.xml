@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>project_eureka_6081</module>
+        <module>project_eureka_6082</module>
+        <module>project_eureka_6083</module>
     </modules>
 
     <dependencies>

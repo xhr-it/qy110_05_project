@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import static com.aaa.staticproperties.TimeFormatProperties.DATE_FORMAT;
@@ -317,5 +318,20 @@ public class MappingProjectService extends BaseService<MappingProject> {
             }
         }
         return false;
+    }
+
+    /**
+     * @param []
+     * @return java.util.List<com.aaa.model.MappingProject>
+     * @date 2020/7/27 21:27
+     * 根据项目完成情况查询项目
+     * status=2未完成 3已完成
+     */
+    public List<Map> getProjectByStatus(){
+        List<Map> projectByStatus = mappingProjectMapper.getProjectByStatus();
+        if (null != projectByStatus){
+            return projectByStatus;
+        }
+        return null;
     }
 }

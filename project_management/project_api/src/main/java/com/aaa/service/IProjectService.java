@@ -23,7 +23,7 @@ import java.util.List;
 public interface IProjectService {
 
     /**
-     * @param [user]
+     * @param user
      * @return com.aaa.base.ResultData
      * @date 2020/7/15 15:47
      * 执行登录操作
@@ -630,4 +630,44 @@ public interface IProjectService {
     @PostMapping("/selectOneResultCommit")
     ResultData selectOneResultCommit(@RequestBody ResultCommit resultCommit);
 
+    //徐浩然
+
+    @GetMapping("/getProjectWithOutSubmit")
+    ResultData getProjectWithOutSubmit(@RequestParam("pageNo") Integer pageNo,@RequestParam("pageSize") Integer pageSize);
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/27 20:46
+     * 数据统计-资质项目汇总统计-项目类型统计
+     */
+    @GetMapping("/getProjectByStatus")
+    ResultData getProjectByStatus();
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/27 21:43
+     * 数据统计-资质项目汇总统计-单位资质统计
+     */
+    @GetMapping("/getUnitByLevel")
+    ResultData getUnitByLevel();
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/28 15:28
+     * 查询所有菜单
+     */
+    @GetMapping("/getAllMenu")
+    ResultData getMenuList();
+
+    /**
+     * @param []
+     * @return com.aaa.base.ResultData
+     * @date 2020/7/16 20:03
+     * 查询所有角色
+     */
+    @GetMapping("/getAllRole")
+    public ResultData getRoleList();
 }

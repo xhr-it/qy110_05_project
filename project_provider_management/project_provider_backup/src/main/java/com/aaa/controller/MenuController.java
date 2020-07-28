@@ -67,7 +67,7 @@ public class MenuController extends CommonController {
      * @date 2020/7/16 14:45
      * 查询所有菜单
      */
-    @PostMapping("/getAllMenu")
+    @GetMapping("/getAllMenu")
     public ResultData getMenuList(){
         List<Menu> menuList = menuService.selectList(null);
         if (menuList != null && menuList.size() > 0) {

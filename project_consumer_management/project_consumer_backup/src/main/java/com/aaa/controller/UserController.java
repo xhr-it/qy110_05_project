@@ -14,6 +14,7 @@ import java.util.List;
  * @author sheep
  */
 @RestController
+@RequestMapping("/user")
 public class UserController extends BaseController {
 
     @Autowired

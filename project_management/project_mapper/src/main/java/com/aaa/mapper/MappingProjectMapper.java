@@ -75,4 +75,13 @@ public interface MappingProjectMapper extends Mapper<MappingProject> {
      * 查询所有已提交但未审核的项目成果 results_status = 2
      */
     List<MappingProject> getProjectResultsWithOutAudit(String projectName);
+
+    /**
+     * @param []
+     * @return java.util.List<com.aaa.model.MappingProject>
+     * @date 2020/7/27 21:27
+     * 根据项目完成情况查询项目
+     * status=2未完成 3已完成
+     */
+    List<Map> getProjectByStatus();
 }

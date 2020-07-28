@@ -35,7 +35,7 @@ public class RoleController extends CommonController<Role> {
      * @date 2020/7/16 20:03
      * 查询所有角色
      */
-    @PostMapping("/getAllRole")
+    @GetMapping("/getAllRole")
     public ResultData getRoleList(){
         List<Role> roleList = roleService.selectList(null);
         if (roleList != null && roleList.size() > 0) {
